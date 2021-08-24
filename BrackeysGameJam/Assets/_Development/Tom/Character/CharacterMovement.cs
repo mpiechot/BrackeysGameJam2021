@@ -14,7 +14,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Start()
     {
-        transform.rotation = Quaternion.Euler(0, -45, 0);
+        transform.rotation = Quaternion.Euler(0, 45, 0);
     }
 
     void Update()
@@ -45,6 +45,6 @@ public class CharacterMovement : MonoBehaviour
         float xMove = Input.GetAxis("Horizontal");
         float zMove = Input.GetAxisRaw("Vertical");
 
-        movement = Quaternion.Euler(0, -45, 0) * new Vector3(xMove, 0, zMove * 1.25f) * moveSpeed;
+        movement = Quaternion.Euler(0, -135, 0) * new Vector3(xMove, 0, zMove * 1.25f) * moveSpeed;
     }
 }

@@ -10,17 +10,44 @@ public class Tower : MonoBehaviour
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private LayerMask targetLayer; 
     
-    private Transform target;
+    private GameObject target;
+    private bool shooting = false;
     
     
     // Update is called once per frame
     void Update()
     {
+        SearchForTargets();
+        ShootAtTarget();
+    }
+
+    private void SearchForTargets()
+    {
         Collider[] targets = Physics.OverlapSphere(transform.position, attackRange, targetLayer);
-        if (targets.Length > 0)
+        target = null;
+        for (int i = 0; i < targets.Length; i++)
         {
-            target = targets[0].transform;
-            Debug.Log("EnemyLayer: " +this.gameObject.layer);
+            //TODO There might be something wrong here: the tower shoots quite late!
+            if (Vector3.Distance(transform.position, targets[i].transform.position) > attackRange)
+            {
+                continue;
+            }
+
+            target = targets[i].gameObject;
+            return;
+        }
+    }
+
+    private void ShootAtTarget()
+    {
+        if (target == null)
+        {
+            return;
+        }
+
+        if (!shooting)
+        {
+            StartCoroutine("Shoot");
         }
     }
 
@@ -28,5 +55,23 @@ public class Tower : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position,attackRange);
+    }
+
+    IEnumerator Shoot()
+    {
+        Debug.Log("Wait for shooting!");
+        shooting = true;
+        yield return new WaitForSeconds(attackSpeed);
+
+        if (target != null)
+        {
+            GameObject bulletObj = Instantiate(this.bullet, transform.position, Quaternion.identity, transform);
+            Bullet bullet = bulletObj.GetComponent<Bullet>();
+            bullet.target = target;
+            print("bullet: " + bullet);
+            print("target: " + target);
+            bullet.HitTargetEvent.AddListener(target.GetComponent<Enemy>().OnEnemyHit);
+        }
+        shooting = false;
     }
 }

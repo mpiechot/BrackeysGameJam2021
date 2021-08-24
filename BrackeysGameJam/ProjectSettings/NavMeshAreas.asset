@@ -13,14 +13,14 @@ NavMeshProjectSettings:
     cost: 2
   - name: Road
     cost: 1
-  - name: Street
-    cost: 1
+  - name: Dirt
+    cost: 3
   - name: Grass
-    cost: 1
+    cost: 2
   - name: Water
-    cost: 1
-  - name: 
-    cost: 1
+    cost: 200
+  - name: Mountain
+    cost: 300
   - name: 
     cost: 1
   - name: 

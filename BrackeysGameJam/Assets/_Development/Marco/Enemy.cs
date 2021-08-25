@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
     public void OnEnemyHit(int damage)
     {
         health -= damage;
-        Debug.Log($"Take Damage: {health}({damage})");
         if (health <= 0)
         {
             Die();

@@ -1,25 +1,57 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
-    [SerializeField] private float attackSpeed = 2f;
+    [SerializeField] private float initAttackSpeed = 2f;
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private LayerMask targetLayer; 
     [SerializeField] private float shootingHeight; 
+    [SerializeField] private GameObject minionPrefab;
+    [SerializeField] private int minionsPerTower = 4;
+    [SerializeField] private float minionPower = .5f;
     
+    private GameObject[] towerMinions;
     private GameObject target;
     private bool shooting = false;
+    private float attackSpeed = 2f;
     
     public int cost { get; set; }
     public bool canShoot = true;
 
+    private void Start()
+    {
+        towerMinions = new GameObject[minionsPerTower];
+        for (int i = 0; i < minionsPerTower; i++)
+        {
+            towerMinions[i] = Instantiate(minionPrefab, transform.position, Quaternion.identity, this.transform);
+            towerMinions[i].GetComponent<MinionVars>().SetHome(transform.position + Vector3.one*Random.Range(1,1.5f));
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        float reduceTime = minionPower * minionsPerTower;
+        int minionsInRange = 0;
+        for (int i = 0; i < minionsPerTower; i++)
+        {
+            if (towerMinions[i].GetComponent<MinionVars>().IsChaos)
+            {
+                minionsInRange++;
+            } 
+        }
+
+        if (minionsInRange == 0)
+        {
+            canShoot = false;
+        }
+        else
+        {
+            attackSpeed = initAttackSpeed + reduceTime - minionsInRange * minionPower;
+        }
+        
         if (canShoot)
         {
             SearchForTargets();
@@ -57,6 +89,13 @@ public class Tower : MonoBehaviour
         }
     }
 
+    public void Destroy()
+    {
+        for (int i = 0; i < minionsPerTower; i++)
+        {
+            Destroy(towerMinions[i]);
+        }
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

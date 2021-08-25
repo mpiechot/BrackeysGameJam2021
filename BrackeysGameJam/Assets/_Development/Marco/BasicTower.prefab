@@ -129,8 +129,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3616227146364120077, guid: a80557abd49658145a86513ee6814016, type: 3}
-  attackSpeed: 2
+  initAttackSpeed: 0.2
   attackRange: 2
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
+  shootingHeight: 0.55
+  minionPrefab: {fileID: 4803340202786178952, guid: 77f257feb7c4ecd488bec80dcf545fcb, type: 3}
+  minionsPerTower: 4
+  minionPower: 0.5
+  canShoot: 1

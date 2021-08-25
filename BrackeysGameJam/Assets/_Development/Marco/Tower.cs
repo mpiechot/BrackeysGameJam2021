@@ -26,7 +26,7 @@ public class Tower : MonoBehaviour
         for (int i = 0; i < minionsPerTower; i++)
         {
             towerMinions[i] = Instantiate(minionPrefab, transform.position, Quaternion.identity, this.transform);
-            towerMinions[i].GetComponent<MinionVars>().SetHome(transform.position + Vector3.one*Random.Range(1,1.5f));
+            towerMinions[i].GetComponent<MinionVars>().SetHome(transform.position + Vector3.one*Random.Range(-1,1));
         }
     }
 
@@ -37,7 +37,7 @@ public class Tower : MonoBehaviour
         int minionsInRange = 0;
         for (int i = 0; i < minionsPerTower; i++)
         {
-            if (towerMinions[i].GetComponent<MinionVars>().IsChaos)
+            if (!towerMinions[i].GetComponent<MinionVars>().IsChaos)
             {
                 minionsInRange++;
             } 
@@ -63,16 +63,10 @@ public class Tower : MonoBehaviour
     {
         Collider[] targets = Physics.OverlapSphere(transform.position, attackRange, targetLayer);
         target = null;
-        for (int i = 0; i < targets.Length; i++)
+        target = targets[0].gameObject;
+        for (int i = 0; i < towerMinions.Length; i++)
         {
-            //TODO There might be something wrong here: the tower shoots quite late!
-            if (Vector3.Distance(transform.position, targets[i].transform.position) > attackRange)
-            {
-                continue;
-            }
-
-            target = targets[i].gameObject;
-            return;
+            towerMinions[i].GetComponent<MinionChaos>().AddChaos(targets.Length);
         }
     }
 

@@ -10,6 +10,7 @@ public class TowerBuildPosition : MonoBehaviour
     
     private bool isSelected = false;
     private Vector3 startPos;
+    [SerializeField] private float lerpSpeed = 0.2f;
 
     private void Start()
     {
@@ -18,21 +19,15 @@ public class TowerBuildPosition : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isSelected = false;
-    }
-
-
-    private void Update()
-    {
-        //Todo improve this!
         if (isSelected)
         {
-            transform.position = Vector3.Lerp(transform.position, startPos + Vector3.up*.5f, 0.02f);
+            transform.position = Vector3.Lerp(transform.position, startPos + Vector3.up*.1f, lerpSpeed);
         }
         else
         {
-            transform.position = Vector3.Lerp(transform.position, startPos, 0.02f);
+            transform.position = Vector3.Lerp(transform.position, startPos, lerpSpeed);
         }
+        isSelected = false;
     }
 
     public void BuildTower(GameObject tower)

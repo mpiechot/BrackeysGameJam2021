@@ -97,8 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163286330745ff240a52970cdb556b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerMinionPrefab: {fileID: 0}
-  minionsPerTower: 4
+  lerpSpeed: 0.2
 --- !u!65 &573560235522009104
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -63,7 +63,10 @@ public class Tower : MonoBehaviour
     {
         Collider[] targets = Physics.OverlapSphere(transform.position, attackRange, targetLayer);
         target = null;
-        target = targets[0].gameObject;
+        if (targets != null && targets.Length > 0)
+        {
+            target = targets[0].gameObject;
+        }
         for (int i = 0; i < towerMinions.Length; i++)
         {
             towerMinions[i].GetComponent<MinionChaos>().AddChaos(targets.Length);

@@ -14,7 +14,7 @@ public class MinionChaos : MonoBehaviour
 
     public void AddChaos(int numEnemies)
     {
-        vars.AddChaos(Time.deltaTime * numEnemies);
+        vars.AddChaos((Time.deltaTime / 3) * numEnemies);
     }
 
     internal void ResetChaos()

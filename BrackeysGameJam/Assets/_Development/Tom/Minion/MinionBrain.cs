@@ -54,6 +54,7 @@ public class MinionBrain : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, vars.Home) > 5)
         {
+            print("Hello!");
             walk.SetWalkDestination(vars.Home);
         }
     }

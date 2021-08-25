@@ -6,7 +6,9 @@ using UnityEngine;
 public class CharacterInteraction : MonoBehaviour
 {
     [SerializeField] private float selectableDistance = 10f;
+    [SerializeField] private GameObject towerPrototype;
     [SerializeField] private LayerMask selectableMask;
+    [SerializeField] private LayerMask minionMask;
 
     private GameObject selectedField;
 
@@ -28,13 +30,22 @@ public class CharacterInteraction : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, selectableDistance, selectableMask))
         {
             selectedField = hit.transform.gameObject;
-            selectedField.GetComponent<TowerBuildPosition>().Select();
+            selectedField?.GetComponent<TowerBuildPosition>()?.Select();
         }
     }
 
     private void CheerUpUnits()
     {
         // For all units in Range, reduce chaos
+        Collider[] chaosM = Physics.OverlapSphere(transform.position, 10, minionMask);
+        if(chaosM != null && chaosM.Length > 0)
+        {
+            Array.ForEach(chaosM, chaosMinion => 
+            {
+                chaosMinion.GetComponent<MinionChaos>()?.ResetChaos();
+                print("Reset Chaos");
+            });
+        }
     }
 
     private void Build()
@@ -42,7 +53,7 @@ public class CharacterInteraction : MonoBehaviour
         if (EnoughCoins()) //Todo if enough coins
         {
 
-            selectedField?.GetComponent<TowerBuildPosition>().BuildTower(null); //Todo get selected UI Tower
+            selectedField?.GetComponent<TowerBuildPosition>()?.BuildTower(towerPrototype); //Todo get selected UI Tower
             
             //Todo reduce coins
         }

@@ -171,7 +171,10 @@ MonoBehaviour:
   selectableDistance: 10
   selectableMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  minionMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &5729696551900713765
 MonoBehaviour:
   m_ObjectHideFlags: 0

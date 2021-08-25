@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class MinionChaos : MonoBehaviour
         vars.AddChaos(Time.fixedDeltaTime * numEnemies);
     }
 
-
-
+    internal void ResetChaos()
+    {
+        vars.SetChaos(0);
+    }
 }

@@ -9481,6 +9481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minion
       objectReference: {fileID: 0}
+    - target: {fileID: 4803340202786178952, guid: 77f257feb7c4ecd488bec80dcf545fcb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4803340202786178958, guid: 77f257feb7c4ecd488bec80dcf545fcb, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -9535,16 +9539,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4153429424336004891, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
-      propertyPath: attackRange
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -4153429424336004891, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
-      propertyPath: attackSpeed
+      propertyPath: initAttackSpeed
       value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4153429424336004891, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
-      propertyPath: shootingHeight
-      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 8417227275713199436, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
       propertyPath: m_RootOrder

@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < waveCouter*2; i++)
         {
             spawnPointEnemy.position = new Vector3(spawnPoint.position.x + Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor), 0.37f, spawnPoint.position.z+ Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor));
-            Instantiate<GameObject>(enemy, spawnPointEnemy.position, Quaternion.identity);
+            Instantiate<GameObject>(enemy, spawnPointEnemy.position, Quaternion.identity).SetActive(true);
         }
         
     }

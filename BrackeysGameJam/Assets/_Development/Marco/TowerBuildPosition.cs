@@ -16,7 +16,7 @@ public class TowerBuildPosition : MonoBehaviour
         startPos = transform.position;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         isSelected = false;
     }
@@ -37,10 +37,11 @@ public class TowerBuildPosition : MonoBehaviour
 
     public void BuildTower(GameObject tower)
     {
-        if (tower == null)
+        print("Build!: " + tower);
+        if (this.tower == null)
         {
             
-            tower = Instantiate(tower, transform.position, Quaternion.identity, this.transform);
+           this.tower = Instantiate(tower, transform.position, Quaternion.identity, this.transform);
         }    
     }
 

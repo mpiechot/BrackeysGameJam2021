@@ -53,6 +53,7 @@ public class CharacterInteraction : MonoBehaviour
         if (EnoughCoins()) //Todo if enough coins
         {
 
+            print("Build!");
             selectedField?.GetComponent<TowerBuildPosition>()?.BuildTower(towerPrototype); //Todo get selected UI Tower
             
             //Todo reduce coins

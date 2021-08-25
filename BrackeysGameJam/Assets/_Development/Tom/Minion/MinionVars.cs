@@ -18,6 +18,7 @@ public class MinionVars : MonoBehaviour
     internal float Chaos { get => chaosVal; }
     internal Vector3 Home { get => home; }
     internal MinionState CurrentState { get => currentState; }
+    public bool IsChaos { get => currentState == MinionState.chaos; }
 
 
     /// <summary>
@@ -37,6 +38,7 @@ public class MinionVars : MonoBehaviour
     {
         this.home = home;
     }
+
 
     internal bool SwitchStates(MinionState nextState)
     {

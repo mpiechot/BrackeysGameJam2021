@@ -9,16 +9,22 @@ public class Tower : MonoBehaviour
     [SerializeField] private float attackSpeed = 2f;
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private LayerMask targetLayer; 
+    [SerializeField] private float shootingHeight; 
     
     private GameObject target;
     private bool shooting = false;
     
-    
+    public int cost { get; set; }
+    public bool canShoot = true;
+
     // Update is called once per frame
     void Update()
     {
-        SearchForTargets();
-        ShootAtTarget();
+        if (canShoot)
+        {
+            SearchForTargets();
+            ShootAtTarget();    
+        }
     }
 
     private void SearchForTargets()
@@ -65,7 +71,7 @@ public class Tower : MonoBehaviour
 
         if (target != null)
         {
-            GameObject bulletObj = Instantiate(this.bullet, transform.position, Quaternion.identity, transform);
+            GameObject bulletObj = Instantiate(this.bullet, transform.position+ Vector3.up*shootingHeight, Quaternion.identity, transform);
             Bullet bullet = bulletObj.GetComponent<Bullet>();
             bullet.target = target;
             print("bullet: " + bullet);

@@ -16,8 +16,6 @@ public class MinionBrain : MonoBehaviour
     {
         vars = GetComponent<MinionVars>();
         walk = GetComponent<MinionWalk>();
-
-        vars.SetChaos(1);
     }
 
 

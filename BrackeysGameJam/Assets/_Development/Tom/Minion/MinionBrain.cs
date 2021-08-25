@@ -51,7 +51,7 @@ public class MinionBrain : MonoBehaviour
 
     private void ChillUpdate()
     {
-        if(Vector3.Distance(transform.position, vars.Home) > 0.75)
+        if(Vector3.Distance(transform.position, vars.Home) > 0.1f)
         {
             walk.SetWalkDestination(vars.Home);
         }

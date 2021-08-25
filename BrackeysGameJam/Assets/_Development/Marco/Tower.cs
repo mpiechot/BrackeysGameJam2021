@@ -49,6 +49,7 @@ public class Tower : MonoBehaviour
         }
         else
         {
+            canShoot = true;
             attackSpeed = initAttackSpeed + reduceTime - minionsInRange * minionPower;
         }
         

@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterInteraction : MonoBehaviour
 {
     [SerializeField] private float selectableDistance = 10f;
+    [SerializeField] private float cheerUpDistance = 5f;
     [SerializeField] private GameObject towerPrototype;
     [SerializeField] private LayerMask selectableMask;
     [SerializeField] private LayerMask minionMask;
@@ -37,7 +38,7 @@ public class CharacterInteraction : MonoBehaviour
     private void CheerUpUnits()
     {
         // For all units in Range, reduce chaos
-        Collider[] chaosM = Physics.OverlapSphere(transform.position, 10, minionMask);
+        Collider[] chaosM = Physics.OverlapSphere(transform.position, cheerUpDistance, minionMask);
         if(chaosM != null && chaosM.Length > 0)
         {
             Array.ForEach(chaosM, chaosMinion => 

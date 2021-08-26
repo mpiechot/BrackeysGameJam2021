@@ -169,7 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableDistance: 10
-  towerPrototype: {fileID: 9188521027111315446, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
+  cheerUpDistance: 2
+  towerPrototype: {fileID: 0}
   selectableMask:
     serializedVersion: 2
     m_Bits: 128

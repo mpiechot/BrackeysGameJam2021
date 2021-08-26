@@ -22,6 +22,11 @@ public class CoinManagement : MonoBehaviour
         manager = this;
     }
 
+    private void Start()
+    {
+        CoinsChangedEvent.Invoke(coins);
+    }
+
     public void OnCoinsCollected(int ammount)
     {
         coins += ammount;

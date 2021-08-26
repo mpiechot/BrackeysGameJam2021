@@ -10120,10 +10120,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4137898978678177425, guid: 010b1de0c6252f948bf7d66a199350a5, type: 3}
-      propertyPath: m_Radius
-      value: 0.35
-      objectReference: {fileID: 0}
     - target: {fileID: 4532446757074228679, guid: 010b1de0c6252f948bf7d66a199350a5, type: 3}
       propertyPath: m_RootOrder
       value: 4

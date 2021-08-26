@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterInteraction : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class CharacterInteraction : MonoBehaviour
     [SerializeField] private LayerMask selectableMask;
     [SerializeField] private LayerMask minionMask;
     [SerializeField] private float sellButtonDelayTime = 0.3f;
+    [SerializeField] private float playerPower = 1000;
+    [SerializeField] private float cheerSpeed = 1.0f;
+
+    [SerializeField] private UnityEvent<int> OnPowerChange;
 
     private GameObject selectedField;
     private float sellButtonDelay;
@@ -43,10 +48,28 @@ public class CharacterInteraction : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButton("Fire2"))
         {
-            CheerUpUnits();
+            if(playerPower > 0)
+            {
+                CheerUpUnits();
+                playerPower -= Time.deltaTime * 250;
+                OnPowerChange?.Invoke(Mathf.Max((int)playerPower, 0));
+            }
         }
+        else
+        {
+            if(playerPower <  1000)
+            {
+                playerPower += Time.deltaTime * 450;
+                OnPowerChange?.Invoke(Math.Min((int)playerPower, 1000));
+            }
+            else
+            {
+                playerPower = 1000;
+            }
+        }
+
     }
 
     void FixedUpdate()
@@ -70,7 +93,7 @@ public class CharacterInteraction : MonoBehaviour
         {
             Array.ForEach(chaosM, chaosMinion => 
             {
-                chaosMinion.GetComponent<MinionChaos>()?.ResetChaos();
+                chaosMinion.GetComponent<MinionChaos>()?.ReduceChaos(cheerSpeed);
                 //print("Reset Chaos");
             });
         }

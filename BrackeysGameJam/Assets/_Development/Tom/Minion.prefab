@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460ec7a3f7dd09e469adb2c9b7f15ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minionSpriteRenderer: {fileID: 4803340203412440642}
 --- !u!1 &4803340203146929367
 GameObject:
   m_ObjectHideFlags: 0

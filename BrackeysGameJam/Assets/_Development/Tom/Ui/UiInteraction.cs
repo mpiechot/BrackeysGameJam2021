@@ -11,6 +11,7 @@ public class UiInteraction : MonoBehaviour
     [SerializeField] private TMPro.TMP_Text coinsTextField;
     [SerializeField] private TMPro.TMP_Text waveTextField;
     [SerializeField] private TMPro.TMP_Text lifeTextField;
+    [SerializeField] private TMPro.TMP_Text playerTextField;
 
     void Update()
     {
@@ -22,9 +23,15 @@ public class UiInteraction : MonoBehaviour
     {
         coinsTextField.text = $"Coins: {currentCoinDisplayVal}";
     }
+
     private void UpdateLifeText(int lives)
     {
         lifeTextField.text = $"Lives: {lives}";
+    }
+
+    private void UpdatePowerText(int power)
+    {
+        playerTextField.text = $"PlayerPower: {power}";
     }
 
     private void UpdateWaveText(int waveNum)
@@ -63,5 +70,10 @@ public class UiInteraction : MonoBehaviour
     public void OnGameOver()
     {
 
+    }
+
+    public void OnPowerChange(int newPower)
+    {
+        UpdatePowerText(newPower);
     }
 }

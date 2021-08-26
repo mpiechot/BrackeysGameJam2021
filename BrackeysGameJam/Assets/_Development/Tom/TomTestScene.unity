@@ -2992,6 +2992,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c8a739f5ba8885f4cb1622089954320a, type: 3}
   m_PrefabInstance: {fileID: 1935062616}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &663304884 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 663304884, guid: f2d17219947166d41821313a81bb6014, type: 3}
+  m_PrefabInstance: {fileID: 182910416747186956}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &663597175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a126d831df1c0a438287d523e16d687, type: 3}
@@ -7823,6 +7834,7 @@ MonoBehaviour:
   coinsTextField: {fileID: 591921016}
   waveTextField: {fileID: 832604316}
   lifeTextField: {fileID: 592828246}
+  playerTextField: {fileID: 663304884}
 --- !u!4 &1731455927
 Transform:
   m_ObjectHideFlags: 0
@@ -8226,6 +8238,34 @@ PrefabInstance:
       propertyPath: towerPrototype
       value: 
       objectReference: {fileID: 9188521027111315446, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
+    - target: {fileID: 5729696551900713764, guid: 9ecba39eb5c6f3d41bbe7a389f968308, type: 3}
+      propertyPath: OnPowerChange.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729696551900713764, guid: 9ecba39eb5c6f3d41bbe7a389f968308, type: 3}
+      propertyPath: OnPowerChange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729696551900713764, guid: 9ecba39eb5c6f3d41bbe7a389f968308, type: 3}
+      propertyPath: OnPowerChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1731455926}
+    - target: {fileID: 5729696551900713764, guid: 9ecba39eb5c6f3d41bbe7a389f968308, type: 3}
+      propertyPath: OnPowerChange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729696551900713764, guid: 9ecba39eb5c6f3d41bbe7a389f968308, type: 3}
+      propertyPath: OnPowerChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPowerChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729696551900713764, guid: 9ecba39eb5c6f3d41bbe7a389f968308, type: 3}
+      propertyPath: OnPowerChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UiInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729696551900713764, guid: 9ecba39eb5c6f3d41bbe7a389f968308, type: 3}
+      propertyPath: OnPowerChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ecba39eb5c6f3d41bbe7a389f968308, type: 3}
 --- !u!4 &1787109844 stripped
@@ -9688,6 +9728,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7674407619991349526, guid: 0526ccc07698339498be35f91d6934ba, type: 3}
   m_PrefabInstance: {fileID: 1454699596}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &2085392001 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4803340203412440642, guid: 77f257feb7c4ecd488bec80dcf545fcb, type: 3}
+  m_PrefabInstance: {fileID: 4803340204296259658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2086844902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7674407619991349526, guid: 0526ccc07698339498be35f91d6934ba, type: 3}
@@ -9948,6 +9993,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 860392661341630111, guid: 77f257feb7c4ecd488bec80dcf545fcb, type: 3}
+      propertyPath: sr
+      value: 
+      objectReference: {fileID: 2085392001}
     - target: {fileID: 4803340202786178952, guid: 77f257feb7c4ecd488bec80dcf545fcb, type: 3}
       propertyPath: m_Name
       value: Minion

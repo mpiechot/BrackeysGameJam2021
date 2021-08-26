@@ -1005,7 +1005,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104864516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.57, y: 0, z: -0.7}
+  m_LocalPosition: {x: 7.63, y: 0, z: -0.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2757,6 +2757,17 @@ Transform:
 --- !u!114 &591921016 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 182910417229100148, guid: f2d17219947166d41821313a81bb6014, type: 3}
+  m_PrefabInstance: {fileID: 182910416747186956}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &592828246 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 592828246, guid: f2d17219947166d41821313a81bb6014, type: 3}
   m_PrefabInstance: {fileID: 182910416747186956}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -7788,6 +7799,8 @@ GameObject:
   - component: {fileID: 1731455927}
   - component: {fileID: 1731455926}
   - component: {fileID: 1731455928}
+  - component: {fileID: 1731455930}
+  - component: {fileID: 1731455929}
   m_Layer: 0
   m_Name: Management
   m_TagString: Untagged
@@ -7809,7 +7822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsTextField: {fileID: 591921016}
   waveTextField: {fileID: 832604316}
-  lifeTextField: {fileID: 0}
+  lifeTextField: {fileID: 592828246}
 --- !u!4 &1731455927
 Transform:
   m_ObjectHideFlags: 0
@@ -7843,6 +7856,73 @@ MonoBehaviour:
       - m_Target: {fileID: 1731455926}
         m_TargetAssemblyTypeName: UiInteraction, Assembly-CSharp
         m_MethodName: OnCoinChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1731455929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731455925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407884dedb26c0348836171daf2900d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOverEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1731455926}
+        m_TargetAssemblyTypeName: UiInteraction, Assembly-CSharp
+        m_MethodName: OnGameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1731455930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731455925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81921004febb8224889e8312262ca268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 40
+  LifeChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1731455926}
+        m_TargetAssemblyTypeName: UiInteraction, Assembly-CSharp
+        m_MethodName: OnLifeChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1731455929}
+        m_TargetAssemblyTypeName: LifeCycleManager, Assembly-CSharp
+        m_MethodName: OnLifeChange
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9976,6 +10056,34 @@ PrefabInstance:
     - target: {fileID: 7848862469451181770, guid: af24e406c79d2f6418aa4d60f6ff8928, type: 3}
       propertyPath: m_Name
       value: Chrystal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848862469451181878, guid: af24e406c79d2f6418aa4d60f6ff8928, type: 3}
+      propertyPath: onGetHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848862469451181878, guid: af24e406c79d2f6418aa4d60f6ff8928, type: 3}
+      propertyPath: onGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848862469451181878, guid: af24e406c79d2f6418aa4d60f6ff8928, type: 3}
+      propertyPath: onGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1731455930}
+    - target: {fileID: 7848862469451181878, guid: af24e406c79d2f6418aa4d60f6ff8928, type: 3}
+      propertyPath: onGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848862469451181878, guid: af24e406c79d2f6418aa4d60f6ff8928, type: 3}
+      propertyPath: onGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHealthReduced
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848862469451181878, guid: af24e406c79d2f6418aa4d60f6ff8928, type: 3}
+      propertyPath: onGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LifeManagement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848862469451181878, guid: af24e406c79d2f6418aa4d60f6ff8928, type: 3}
+      propertyPath: onGetHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af24e406c79d2f6418aa4d60f6ff8928, type: 3}

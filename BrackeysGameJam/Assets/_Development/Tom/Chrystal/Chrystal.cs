@@ -11,6 +11,7 @@ public class Chrystal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GetHit();
+        Destroy(other.gameObject);
     }
 
     private void GetHit()

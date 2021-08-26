@@ -24,7 +24,7 @@ public class UiInteraction : MonoBehaviour
     }
     private void UpdateLifeText(int lives)
     {
-        coinsTextField.text = $"Lives: {lives}";
+        lifeTextField.text = $"Lives: {lives}";
     }
 
     private void UpdateWaveText(int waveNum)

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 592828247}
   - component: {fileID: 592828246}
   m_Layer: 5
-  m_Name: CoinsTextField (1)
+  m_Name: LivesTextField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 182910417525261201}
   - component: {fileID: 182910417525261200}
   m_Layer: 5
-  m_Name: DescriptionTextField
+  m_Name: WaveTextField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

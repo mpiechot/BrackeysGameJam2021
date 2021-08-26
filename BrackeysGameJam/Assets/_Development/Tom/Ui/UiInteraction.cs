@@ -10,11 +10,7 @@ public class UiInteraction : MonoBehaviour
     private int currentCoinDisplayVal;
     [SerializeField] private TMPro.TMP_Text coinsTextField;
     [SerializeField] private TMPro.TMP_Text waveTextField;
-
-    private void Start()
-    {
-        OnNextWave(0);
-    }
+    [SerializeField] private TMPro.TMP_Text lifeTextField;
 
     void Update()
     {
@@ -25,6 +21,10 @@ public class UiInteraction : MonoBehaviour
     private void UpdateDisplayText()
     {
         coinsTextField.text = $"Coins: {currentCoinDisplayVal}";
+    }
+    private void UpdateLifeText(int lives)
+    {
+        coinsTextField.text = $"Lives: {lives}";
     }
 
     private void UpdateWaveText(int waveNum)
@@ -53,5 +53,15 @@ public class UiInteraction : MonoBehaviour
     public void OnNextWave(int currentWave)
     {
         UpdateWaveText(currentWave);
+    }
+
+    public void OnLifeChange(int currentLife)
+    {
+        UpdateLifeText(currentLife);
+    }
+
+    public void OnGameOver()
+    {
+
     }
 }

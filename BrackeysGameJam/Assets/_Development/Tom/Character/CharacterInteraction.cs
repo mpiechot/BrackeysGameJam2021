@@ -10,14 +10,37 @@ public class CharacterInteraction : MonoBehaviour
     [SerializeField] private GameObject towerPrototype;
     [SerializeField] private LayerMask selectableMask;
     [SerializeField] private LayerMask minionMask;
+    [SerializeField] private float sellButtonDelayTime = 0.3f;
 
     private GameObject selectedField;
+    private float sellButtonDelay;
+
+    private bool sellToggle;
 
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
             Build();
+        }
+        
+        if(Input.GetButton("Fire1"))
+        {
+            sellButtonDelay += Time.deltaTime;
+        }
+        else
+        {
+            sellButtonDelay = 0.0f;
+            sellToggle = false;
+        }
+
+        if(sellButtonDelay >= sellButtonDelayTime)
+        {
+            if(!sellToggle)
+            {
+                Sell();
+                sellToggle = true;
+            }
         }
 
         if (Input.GetButtonDown("Fire2"))
@@ -32,6 +55,10 @@ public class CharacterInteraction : MonoBehaviour
         {
             selectedField = hit.transform.gameObject;
             selectedField?.GetComponent<TowerBuildPosition>()?.Select();
+        }
+        else if(selectedField)
+        {
+            selectedField = null;
         }
     }
 
@@ -51,18 +78,14 @@ public class CharacterInteraction : MonoBehaviour
 
     private void Build()
     {
-        if (EnoughCoins()) //Todo if enough coins
-        {
-
-            print("Build!");
-            selectedField?.GetComponent<TowerBuildPosition>()?.BuildTower(towerPrototype); //Todo get selected UI Tower
-            
-            //Todo reduce coins
-        }
+        print("Build!");
+        selectedField?.GetComponent<TowerBuildPosition>()?.BuildTower(towerPrototype);
     }
 
-    private bool EnoughCoins()
+    private void Sell()
     {
-        return true; 
+        print("Sell!");
+        selectedField?.GetComponent<TowerBuildPosition>()?.SellTower();
     }
+
 }

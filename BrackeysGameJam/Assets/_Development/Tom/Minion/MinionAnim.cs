@@ -33,7 +33,7 @@ public class MinionAnim : MonoBehaviour
 
     private void Update()
     {
-        print(currentState);
+        //print(currentState);
 
         if (currentState == AnimState.Idle)
         {

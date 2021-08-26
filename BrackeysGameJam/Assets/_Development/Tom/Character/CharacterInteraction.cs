@@ -44,7 +44,7 @@ public class CharacterInteraction : MonoBehaviour
             Array.ForEach(chaosM, chaosMinion => 
             {
                 chaosMinion.GetComponent<MinionChaos>()?.ResetChaos();
-                print("Reset Chaos");
+                //print("Reset Chaos");
             });
         }
     }

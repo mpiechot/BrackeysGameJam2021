@@ -6,14 +6,14 @@ using UnityEngine;
 public class UiInteraction : MonoBehaviour
 {
 
-
     private int targetCoinVal;
     private int currentCoinDisplayVal;
     [SerializeField] private TMPro.TMP_Text coinsTextField;
+    [SerializeField] private TMPro.TMP_Text waveTextField;
 
     private void Start()
     {
-        // TODO: Subscribe to Coins Change Event
+        OnNextWave(0);
     }
 
     void Update()
@@ -25,6 +25,11 @@ public class UiInteraction : MonoBehaviour
     private void UpdateDisplayText()
     {
         coinsTextField.text = $"Coins: {currentCoinDisplayVal}";
+    }
+
+    private void UpdateWaveText(int waveNum)
+    {
+        waveTextField.text = $"Wave          - {waveNum} - \nHave Fun!";
     }
 
     private void UpdateDisplayVal()
@@ -39,9 +44,14 @@ public class UiInteraction : MonoBehaviour
         }
     }
 
-    private void OnCoinChange(int newCoinValue)
+    public void OnCoinChange(int newCoinValue)
     {
         targetCoinVal = newCoinValue;
     }
 
+
+    public void OnNextWave(int currentWave)
+    {
+        UpdateWaveText(currentWave);
+    }
 }

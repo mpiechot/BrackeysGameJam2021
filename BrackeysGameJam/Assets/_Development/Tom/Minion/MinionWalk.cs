@@ -6,6 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class MinionWalk : MonoBehaviour
 {
+    [SerializeField] private MinionAnim anim;
 
     private NavMeshAgent agent;
 
@@ -19,6 +20,7 @@ public class MinionWalk : MonoBehaviour
     {
         agent.SetDestination(destination);
         agent.isStopped = false;
+        anim.RequestState(AnimState.Walk);
     }
 
 }

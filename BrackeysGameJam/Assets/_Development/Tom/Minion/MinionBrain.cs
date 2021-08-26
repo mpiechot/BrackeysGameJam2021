@@ -7,6 +7,8 @@ using UnityEngine;
 public class MinionBrain : MonoBehaviour
 {
 
+    [SerializeField] private MinionAnim anim;
+
     private MinionVars vars;
     private MinionWalk walk;
 
@@ -22,6 +24,11 @@ public class MinionBrain : MonoBehaviour
 
     private void Update()
     {
+        if(vars.CurrentState == MinionState.start)
+        {
+            SwitchStates(MinionState.chill);
+        }
+
         if(vars.CurrentState == MinionState.chill)
         {
             ChillUpdate();
@@ -46,6 +53,10 @@ public class MinionBrain : MonoBehaviour
         if (vars.SwitchStates(nextState))
         {
             randomNextGoalTime = Time.time;
+            if(nextState == MinionState.chill) walk.SetWalkDestination(vars.Home);
+
+            if (nextState == MinionState.chaos) anim.RequestState(AnimState.Chaos);
+            else if (nextState == MinionState.chill) anim.RequestState(AnimState.Idle);
         }
     }
 
@@ -54,6 +65,10 @@ public class MinionBrain : MonoBehaviour
         if(Vector3.Distance(transform.position, vars.Home) > 0.1f)
         {
             walk.SetWalkDestination(vars.Home);
+        }
+        else
+        {
+            anim.RequestState(AnimState.Idle);
         }
     }
 

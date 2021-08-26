@@ -5,11 +5,13 @@ using UnityEngine;
 
 internal enum MinionState
 {
+    start,
     chill,
     chaos
 }
 public class MinionVars : MonoBehaviour
 {
+
 
     private Vector3 home;
     private float chaosVal;

@@ -7205,6 +7205,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c8a739f5ba8885f4cb1622089954320a, type: 3}
   m_PrefabInstance: {fileID: 1623881242}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1626486294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9188521027111315446, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
+  m_PrefabInstance: {fileID: 8306123022032584946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1631706433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7933,6 +7938,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5729696551900713764, guid: 9ecba39eb5c6f3d41bbe7a389f968308, type: 3}
+      propertyPath: towerPrototype
+      value: 
+      objectReference: {fileID: 1626486294}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ecba39eb5c6f3d41bbe7a389f968308, type: 3}
 --- !u!4 &1787109844 stripped
@@ -9668,7 +9677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4803340202786178958, guid: 77f257feb7c4ecd488bec80dcf545fcb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.124
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 4803340202786178958, guid: 77f257feb7c4ecd488bec80dcf545fcb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9714,6 +9723,10 @@ PrefabInstance:
     - target: {fileID: -4153429424336004891, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
       propertyPath: initAttackSpeed
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4153429424336004891, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
+      propertyPath: minionsPerTower
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8417227275713199436, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
       propertyPath: m_RootOrder
@@ -9762,6 +9775,10 @@ PrefabInstance:
     - target: {fileID: 9188521027111315446, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
       propertyPath: m_Name
       value: BasicTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188521027111315446, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1715b956c5c310c458893d5b2beb47a5, type: 3}

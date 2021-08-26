@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject enemyPref;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] float spawnPositionRandomFactor;
     [SerializeField] float recoveryTime;
     private Transform spawnPointEnemy;
 
     private int waveCouter = 0;
+
+    private CoinManagement coinManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
 
         StartNextWave();
         
+        coinManager = CoinManagement.GetInstance();
     }
     
 
@@ -36,7 +39,9 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < waveCouter*2; i++)
         {
             spawnPointEnemy.position = new Vector3(spawnPoint.position.x + Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor), 0.37f, spawnPoint.position.z+ Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor));
-            Instantiate<GameObject>(enemy, spawnPointEnemy.position, Quaternion.identity).SetActive(true);
+            GameObject enemy = Instantiate<GameObject>(enemyPref, spawnPointEnemy.position, Quaternion.identity);
+            enemy.SetActive(true);
+            enemy.GetComponent<Enemy>().EnemyDiedEvent.AddListener(coinManager.OnCoinsCollected);
         }
         
     }

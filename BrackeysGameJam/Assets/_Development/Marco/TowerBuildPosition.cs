@@ -32,11 +32,10 @@ public class TowerBuildPosition : MonoBehaviour
 
     public void BuildTower(GameObject tower)
     {
-        print("Build!: " + tower);
-        if (this.tower == null)
+        int cost = tower.GetComponent<Tower>().cost;
+        if (this.tower == null && CoinManagement.GetInstance().OnCoinsReduced(cost))
         {
-            
-           this.tower = Instantiate(tower, transform.position, Quaternion.identity, this.transform);
+            this.tower = Instantiate(tower, transform.position, Quaternion.identity, this.transform);
         }    
     }
 
@@ -45,6 +44,7 @@ public class TowerBuildPosition : MonoBehaviour
         if (tower != null)
         {
             int cost = tower.GetComponent<Tower>().cost;
+            CoinManagement.GetInstance().OnCoinsCollected(cost);
             Destroy(tower);
             tower.GetComponent<Tower>().Destroy();
             return cost;

@@ -17,7 +17,7 @@ public class Tower : MonoBehaviour
     private bool shooting = false;
     private float attackSpeed = 2f;
     
-    public int cost { get; set; }
+    public int cost = 10;
     public bool canShoot = true;
 
     private void Start()

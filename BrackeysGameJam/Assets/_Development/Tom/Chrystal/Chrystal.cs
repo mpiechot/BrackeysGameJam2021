@@ -8,7 +8,7 @@ public class Chrystal : MonoBehaviour
 
     [SerializeField] private UnityEvent<int> onGetHit; 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         GetHit();
         Destroy(other.gameObject);

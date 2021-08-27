@@ -38,10 +38,12 @@ public class EnemySpawner : MonoBehaviour
         Debug.Log("Neue Gegner werden erschaffen.");
         for (int i = 0; i < waveCouter*2; i++)
         {
-            spawnPointEnemy.position = new Vector3(spawnPoint.position.x + Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor), 0.37f, spawnPoint.position.z+ Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor));
-            GameObject enemy = Instantiate<GameObject>(enemyPref, spawnPointEnemy.position, Quaternion.identity);
+            //spawnPointEnemy.position = new Vector3(spawnPoint.position.x + Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor), 0.37f, spawnPoint.position.z+ Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor));
+            GameObject enemy = Instantiate<GameObject>(enemyPref, 
+                new Vector3(spawnPoint.position.x + Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor), spawnPoint.position.y + Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor))
+                , Quaternion.identity);
             enemy.SetActive(true);
-            enemy.GetComponent<Enemy>().EnemyDiedEvent.AddListener(coinManager.OnCoinsCollected);
+            enemy.GetComponent<ISOEnemy>().EnemyDiedEvent.AddListener(coinManager.OnCoinsCollected);
         }
         
     }
@@ -51,5 +53,7 @@ public class EnemySpawner : MonoBehaviour
         Debug.Log("Erholungszeit beginnt.");
         yield return new WaitForSeconds(recoveryTime);
         SpawnEnemies(waveCouter);
+        yield return new WaitForSeconds(recoveryTime);
+        StartCoroutine("WaitForRecoveryTime");
     }
 }

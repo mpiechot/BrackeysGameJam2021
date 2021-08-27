@@ -15,8 +15,8 @@ TagManager:
   - TowerPositions
   - Minion
   - Chrystal
-  - 
-  - 
+  - TileMap
+  - Player
   - 
   - 
   - 
@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: TileMap
+    uniqueID: 3808126703
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 4206109133
+    locked: 0
+  - name: DebugForeground
+    uniqueID: 2460789337
     locked: 0

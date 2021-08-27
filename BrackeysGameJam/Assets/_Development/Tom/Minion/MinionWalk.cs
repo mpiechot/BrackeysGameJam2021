@@ -3,23 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class MinionWalk : MonoBehaviour
 {
     [SerializeField] private MinionAnim anim;
+    [SerializeField] private PathFinder minionFinder;
+    List<KlotzPathData> selectedPath;
 
-    private NavMeshAgent agent;
+    private float walkSpeed;
 
-    private void Start()
+    private void Update()
     {
-        agent = GetComponent<NavMeshAgent>();
+        if (selectedPath != null && selectedPath.Count > 0)
+        {
+            transform.Translate((selectedPath[0].transform.position - transform.position).normalized * Time.deltaTime * walkSpeed);
+
+            if (Vector2.Distance(transform.position, selectedPath[0].transform.position) < 0.2f)
+            {
+                selectedPath.RemoveAt(0);
+            }
+        }
     }
 
+    internal void SetWalkSpeed(float speed)
+    {
+        walkSpeed = speed;
+    }
 
     internal void SetWalkDestination(Vector3 destination)
     {
-        agent.SetDestination(destination);
-        agent.isStopped = false;
+        if (selectedPath == null || selectedPath.Count > 0)
+        {
+            selectedPath = minionFinder.StartPathfinding(transform, destination);
+        }
+        anim.RequestState(AnimState.Walk);
+    }
+
+    internal void SetWalkDestination(Vector3 destination, bool overrideCurrentPath)
+    {
+        if (overrideCurrentPath || selectedPath == null || selectedPath.Count > 0)
+        {
+            selectedPath = minionFinder.StartPathfinding(transform, destination);
+        }
         anim.RequestState(AnimState.Walk);
     }
 

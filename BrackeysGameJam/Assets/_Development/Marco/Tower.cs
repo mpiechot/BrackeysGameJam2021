@@ -26,7 +26,8 @@ public class Tower : MonoBehaviour
         for (int i = 0; i < minionsPerTower; i++)
         {
             towerMinions[i] = Instantiate(minionPrefab, transform.position, Quaternion.identity, this.transform);
-            towerMinions[i].GetComponent<MinionVars>().SetHome(transform.position + Vector3.one*Random.Range(-1,1));
+            towerMinions[i].SetActive(true);
+            towerMinions[i].GetComponent<MinionVars>().SetHome(transform.position + Vector3.one*Random.Range(-1.0f,1.0f));
         }
     }
 
@@ -62,7 +63,7 @@ public class Tower : MonoBehaviour
 
     private void SearchForTargets()
     {
-        Collider[] targets = Physics.OverlapSphere(transform.position, attackRange, targetLayer);
+        Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, attackRange, targetLayer);
         target = null;
         if (targets != null && targets.Length > 0)
         {
@@ -70,7 +71,8 @@ public class Tower : MonoBehaviour
         }
         for (int i = 0; i < towerMinions.Length; i++)
         {
-            towerMinions[i].GetComponent<MinionChaos>().AddChaos(targets.Length);
+            if (Vector2.Distance(transform.position, towerMinions[i].transform.position) < 2)
+                towerMinions[i].GetComponent<MinionChaos>().AddChaos(targets.Length);
         }
     }
 
@@ -113,7 +115,7 @@ public class Tower : MonoBehaviour
             bullet.target = target;
             print("bullet: " + bullet);
             print("target: " + target);
-            bullet.HitTargetEvent.AddListener(target.GetComponent<Enemy>().OnEnemyHit);
+            bullet.HitTargetEvent.AddListener(target.GetComponent<ISOEnemy>().OnEnemyHit);
         }
         shooting = false;
     }

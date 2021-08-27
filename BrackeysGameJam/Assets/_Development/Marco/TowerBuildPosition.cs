@@ -21,13 +21,12 @@ public class TowerBuildPosition : MonoBehaviour
     {
         if (isSelected)
         {
-            transform.position = Vector3.Lerp(transform.position, startPos + Vector3.up*.1f, lerpSpeed);
+            transform.GetChild(0).position = Vector3.Lerp(transform.GetChild(0).position, startPos + Vector3.up * .2f, lerpSpeed);
         }
         else
         {
-            transform.position = Vector3.Lerp(transform.position, startPos, lerpSpeed);
+            transform.GetChild(0).position = Vector3.Lerp(transform.GetChild(0).position, startPos, lerpSpeed);
         }
-        isSelected = false;
     }
 
     public void BuildTower(GameObject tower)
@@ -35,7 +34,9 @@ public class TowerBuildPosition : MonoBehaviour
         int cost = tower.GetComponent<Tower>().cost;
         if (this.tower == null && CoinManagement.GetInstance().OnCoinsReduced(cost))
         {
-            this.tower = Instantiate(tower, transform.position, Quaternion.identity, this.transform);
+            this.tower = Instantiate(tower, transform.position, Quaternion.identity, this.transform.GetChild(0));
+            this.tower.transform.localScale = Vector3.one * (1 / transform.parent.localScale.x);
+            this.tower.SetActive(true);
         }    
     }
 
@@ -57,5 +58,11 @@ public class TowerBuildPosition : MonoBehaviour
     {
         print("Select!");
         isSelected = true;
+    }
+
+    public void UnSelect()
+    {
+        print("Select!");
+        isSelected = false;
     }
 }

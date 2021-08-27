@@ -1,0 +1,67 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class KlotzPathData : MonoBehaviour
+{
+
+    private List<KlotzPathData> neighbours;
+    [SerializeField] private LayerMask neighbourLayers;
+    public List<KlotzPathData> Neighbours { get => neighbours; }
+
+    void Start()
+    {
+        neighbours = new List<KlotzPathData>();
+        SetupNeighbours();
+    }
+
+    private void SetupNeighbours()
+    {
+        KlotzPathData nextNeighbour;
+        if (nextNeighbour = LookForNeighbour(new Vector2(0.5f, 0.28f) * transform.parent.localScale))
+        {
+            neighbours.Add(nextNeighbour);
+            //nextNeighbour.RegisterNeighbour(this);
+        }
+        if (nextNeighbour = LookForNeighbour(new Vector2(-0.5f, 0.28f) * transform.parent.localScale))
+        {
+            neighbours.Add(nextNeighbour);
+            //nextNeighbour.RegisterNeighbour(this);
+        }
+        if (nextNeighbour = LookForNeighbour(new Vector2(0.5f, -0.28f) * transform.parent.localScale))
+        {
+            neighbours.Add(nextNeighbour);
+            //nextNeighbour.RegisterNeighbour(this);
+        }
+        if (nextNeighbour = LookForNeighbour(new Vector2(-0.5f, -0.28f) * transform.parent.localScale))
+        {
+            neighbours.Add(nextNeighbour);
+            //nextNeighbour.RegisterNeighbour(this);
+        }
+    }
+
+    private KlotzPathData LookForNeighbour(Vector3 checkPosition)
+    {
+        Collider2D colliderCheck;
+        if (colliderCheck = Physics2D.OverlapCircle(transform.position + checkPosition, 0.1f, neighbourLayers))
+        {
+            KlotzPathData klotzData;
+            if (colliderCheck.TryGetComponent(out klotzData))
+            {
+                return klotzData;
+            }
+        }
+
+        return null;
+    }
+
+    public void RegisterNeighbour(KlotzPathData newNeighbour)
+    {
+        if (neighbours == null) neighbours = new List<KlotzPathData>();
+        if (!neighbours.Contains(newNeighbour))
+        {
+            neighbours.Add(newNeighbour);
+        }
+    }
+
+}

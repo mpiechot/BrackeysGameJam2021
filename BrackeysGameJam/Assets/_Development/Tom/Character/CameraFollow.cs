@@ -10,7 +10,6 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position + new Vector3(1, 0.75f, -1) * 20, 0.1f);
-        transform.LookAt(target);
+        transform.position = Vector3.Lerp(transform.position, target.position + new Vector3(0, 0, -1) * 20, 0.1f);
     }
 }

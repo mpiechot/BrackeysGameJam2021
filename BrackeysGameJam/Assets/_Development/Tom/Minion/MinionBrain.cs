@@ -53,20 +53,25 @@ public class MinionBrain : MonoBehaviour
         if (vars.SwitchStates(nextState))
         {
             randomNextGoalTime = Time.time;
-            if(nextState == MinionState.chill) walk.SetWalkDestination(vars.Home);
+            if(nextState == MinionState.chill) walk.SetWalkDestination(vars.Home, true);
 
-            if (nextState == MinionState.chaos) anim.RequestState(AnimState.Chaos);
-            else if (nextState == MinionState.chill) anim.RequestState(AnimState.Idle);
+            if (nextState == MinionState.chaos)
+            {
+                anim.RequestState(AnimState.Chaos);
+                walk.SetWalkSpeed(5);
+            }
+            else if (nextState == MinionState.chill)
+            {
+                anim.RequestState(AnimState.Idle);
+                walk.SetWalkSpeed(1);
+            }
+                
         }
     }
 
     private void ChillUpdate()
     {
-        if(Vector3.Distance(transform.position, vars.Home) > 0.1f)
-        {
-            walk.SetWalkDestination(vars.Home);
-        }
-        else
+        if(Vector3.Distance(transform.position, vars.Home) < 0.1f)
         {
             anim.RequestState(AnimState.Idle);
         }
@@ -76,8 +81,9 @@ public class MinionBrain : MonoBehaviour
     {
         if(Time.time > randomNextGoalTime)
         {
-            walk.SetWalkDestination(new Vector3(UnityEngine.Random.Range(6.0f, 15.0f), 0, UnityEngine.Random.Range(0.0f, 9.0f)));
-            randomNextGoalTime = Time.time + UnityEngine.Random.Range(0.5f, 2.0f);
+            Vector3 nextDestination = new Vector3(UnityEngine.Random.Range(-10.0f, 10.0f), 0, UnityEngine.Random.Range(-10.0f, 10.0f));
+            walk.SetWalkDestination(nextDestination, true);
+            randomNextGoalTime = Time.time + UnityEngine.Random.Range(0.5f, 5.0f);
         }
     }
 }

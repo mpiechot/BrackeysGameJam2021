@@ -1,13 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+public enum KlotzType
+{
+    Path,
+    Grass,
+    Dirt,
+    Flowers
+}
 
 public class KlotzPathData : MonoBehaviour
 {
 
     private List<KlotzPathData> neighbours;
     [SerializeField] private LayerMask neighbourLayers;
+    [SerializeField] private KlotzType type;
     public List<KlotzPathData> Neighbours { get => neighbours; }
+
+
 
     void Start()
     {
@@ -64,4 +76,11 @@ public class KlotzPathData : MonoBehaviour
         }
     }
 
+    internal float GetCost(float[] moveMatrix)
+    {
+        if (moveMatrix.Length <= (int)type)
+            return 10000;
+        
+        return moveMatrix[(int)type];
+    }
 }

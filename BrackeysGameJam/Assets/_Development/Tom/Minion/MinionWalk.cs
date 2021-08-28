@@ -7,6 +7,7 @@ public class MinionWalk : MonoBehaviour
 {
     [SerializeField] private MinionAnim anim;
     [SerializeField] private PathFinder minionFinder;
+    [SerializeField] private float[] moveMatrix;
     List<KlotzPathData> selectedPath;
 
     private float walkSpeed;
@@ -33,7 +34,7 @@ public class MinionWalk : MonoBehaviour
     {
         if (selectedPath == null || selectedPath.Count > 0)
         {
-            selectedPath = minionFinder.StartPathfinding(transform, destination);
+            selectedPath = minionFinder.StartPathfinding(transform, destination, moveMatrix);
         }
         anim.RequestState(AnimState.Walk);
     }
@@ -42,7 +43,7 @@ public class MinionWalk : MonoBehaviour
     {
         if (overrideCurrentPath || selectedPath == null || selectedPath.Count > 0)
         {
-            selectedPath = minionFinder.StartPathfinding(transform, destination);
+            selectedPath = minionFinder.StartPathfinding(transform, destination, moveMatrix);
         }
         anim.RequestState(AnimState.Walk);
     }

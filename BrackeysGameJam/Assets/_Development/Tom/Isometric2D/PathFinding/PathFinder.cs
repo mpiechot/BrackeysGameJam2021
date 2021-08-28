@@ -13,27 +13,26 @@ public class PathFinder : MonoBehaviour
     Dictionary<KlotzPathData, float> gScore;
     Dictionary<KlotzPathData, float> fScore;
 
-    public List<KlotzPathData> StartPathfinding(Transform startPosition, Transform endPosition)
+    public List<KlotzPathData> StartPathfinding(Transform startPosition, Transform endPosition, float[] moveMatrix)
     {
-        return FindPath(startPosition.position, endPosition.position);
+        return FindPath(startPosition.position, endPosition.position, moveMatrix);
     }
 
-    public List<KlotzPathData> StartPathfinding(Transform startPosition, Vector3 endPosition)
+    public List<KlotzPathData> StartPathfinding(Transform startPosition, Vector3 endPosition, float[] moveMatrix)
     {
-        return FindPath(startPosition.position, endPosition);
+        return FindPath(startPosition.position, endPosition, moveMatrix);
     }
-    public List<KlotzPathData> StartPathfinding(Vector3 startPosition, Vector3 endPosition)
+    public List<KlotzPathData> StartPathfinding(Vector3 startPosition, Vector3 endPosition, float[] moveMatrix)
     {
-        return FindPath(startPosition, endPosition);
+        return FindPath(startPosition, endPosition, moveMatrix);
     }
-    public List<KlotzPathData> StartPathfinding(Vector3 startPosition, Transform endPosition)
+    public List<KlotzPathData> StartPathfinding(Vector3 startPosition, Transform endPosition, float[] moveMatrix)
     {
-        return FindPath(startPosition, endPosition.position);
+        return FindPath(startPosition, endPosition.position, moveMatrix);
     }
 
-    private List<KlotzPathData> FindPath(Vector3 startPosition, Vector3 endPosition)
+    private List<KlotzPathData> FindPath(Vector3 startPosition, Vector3 endPosition, float[] moveMatrix)
     {
-
         KlotzPathData startKlotz = setup.GetKlotz(startPosition);
         KlotzPathData endKlotz = setup.GetKlotz(endPosition);
 
@@ -76,7 +75,7 @@ public class PathFinder : MonoBehaviour
             // Update Segments of path finding (g, f, ...)
             foreach(KlotzPathData nKlotz in currentKlotz.Neighbours)
             {
-                float tentative_g = gScore[currentKlotz] + MoveCost(currentKlotz, nKlotz);
+                float tentative_g = gScore[currentKlotz] + MoveCost(currentKlotz, nKlotz, moveMatrix);
                 if(!gScore.ContainsKey(nKlotz) || tentative_g < gScore[nKlotz])
                 {
                     // Update Neighbour 
@@ -114,10 +113,10 @@ public class PathFinder : MonoBehaviour
     }
 
     
-    private float MoveCost(KlotzPathData currentKlotz, KlotzPathData nKlotz)
+    private float MoveCost(KlotzPathData currentKlotz, KlotzPathData nKlotz, float[] moveMatrix)
     {
         // For now all cost is the same
-        return 1;
+        return nKlotz.GetCost(moveMatrix);
     }
 
     private KlotzPathData FindNextOpenTile(List<KlotzPathData> openSet, Dictionary<KlotzPathData, float> fScore)

@@ -119,6 +119,11 @@ MonoBehaviour:
   coinsWorth: 10
   health: 20
   pathFinder: {fileID: 0}
+  moveMatrix:
+  - 1
+  - 50
+  - 50
+  - 50
   EnemyDiedEvent:
     m_PersistentCalls:
       m_Calls: []

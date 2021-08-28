@@ -172,6 +172,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 4803340204296259660}
   minionFinder: {fileID: 0}
+  moveMatrix:
+  - 2
+  - 1
+  - 1
+  - 1
 --- !u!114 &860392661341630111
 MonoBehaviour:
   m_ObjectHideFlags: 0

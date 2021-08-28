@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class IsoPlayerInteraction : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class IsoPlayerInteraction : MonoBehaviour
     [SerializeField] private float selectableDistance = 10f;
     [SerializeField] private float cheerUpDistance = 5f;
     [SerializeField] private GameObject towerPrototype;
+    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private LayerMask selectableMask;
     [SerializeField] private LayerMask minionMask;
     [SerializeField] private float sellButtonDelayTime = 0.3f;
@@ -68,6 +70,11 @@ public class IsoPlayerInteraction : MonoBehaviour
             {
                 playerPower = 1000;
             }
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            pauseMenu.SetActive(true);
         }
 
     }

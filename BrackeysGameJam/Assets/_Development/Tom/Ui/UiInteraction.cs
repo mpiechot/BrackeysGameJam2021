@@ -39,6 +39,17 @@ public class UiInteraction : MonoBehaviour
         waveTextField.text = $"Wave          - {waveNum} - \nHave Fun!";
     }
 
+    private void UpdateWonText()
+    {
+        waveTextField.text = $"You          - Won - \nThe Game!";
+
+    }
+    private void UpdateLostText()
+    {
+        waveTextField.text = $"You          - Lost - \nThe Game!";
+
+    }
+
     private void UpdateDisplayVal()
     {
         if (Mathf.Abs(currentCoinDisplayVal - targetCoinVal) > 10)
@@ -61,6 +72,10 @@ public class UiInteraction : MonoBehaviour
     {
         UpdateWaveText(currentWave);
     }
+    public void OnWonGame()
+    {
+        UpdateWonText();
+    }
 
     public void OnLifeChange(int currentLife)
     {
@@ -69,7 +84,7 @@ public class UiInteraction : MonoBehaviour
 
     public void OnGameOver()
     {
-
+        UpdateLostText();
     }
 
     public void OnPowerChange(int newPower)

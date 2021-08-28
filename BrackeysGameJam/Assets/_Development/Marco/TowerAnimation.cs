@@ -13,7 +13,6 @@ public class TowerAnimation : MonoBehaviour
     private void Start()
     {
         startPosition = diamond.localPosition;
-        timer = Time.time;
     }
 
     void Update()

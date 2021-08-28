@@ -164,6 +164,7 @@ MonoBehaviour:
   - 1
   - 1
   - 1
+  - 1
 --- !u!114 &860392661341630111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +258,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4803340203412440653}
   - component: {fileID: 4803340203412440642}
+  - component: {fileID: 2040218763}
+  - component: {fileID: 2040218764}
+  - component: {fileID: 520491797}
   m_Layer: 8
   m_Name: character_femaleAdventurer_idle
   m_TagString: Untagged
@@ -316,8 +320,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -88858163
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c7df9ce6930a70e4887ca725e21192ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -330,6 +334,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2040218763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803340203412440652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab56437cb3263d418dcc1ebee14e958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 1
+--- !u!114 &2040218764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803340203412440652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d99ff406ed8a6478946da46a62835d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectables:
+  - {fileID: 21300000, guid: c7df9ce6930a70e4887ca725e21192ee, type: 3}
+  - {fileID: 21300000, guid: 756c28a4cc7a786448cc975e32913947, type: 3}
+  - {fileID: 21300000, guid: 9b56bfbbd42a54f4087342ea9a55cd53, type: 3}
+  - {fileID: 21300000, guid: 5439ac047f30e0c45a8432f804186ffe, type: 3}
+  - {fileID: 21300000, guid: 70153c7d411e1d347ae31f40cab76bdf, type: 3}
+  - {fileID: 21300000, guid: 32b720b03d067084eb029b22727d2a47, type: 3}
+--- !u!114 &520491797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803340203412440652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab56437cb3263d418dcc1ebee14e958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 1
 --- !u!1 &7118089733821938759
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class IsoPlayerInteraction : MonoBehaviour
     [SerializeField] private float sellButtonDelayTime = 0.3f;
     [SerializeField] private float playerPower = 1000;
     [SerializeField] private float cheerSpeed = 1.0f;
+    [SerializeField] private float powerDepletion = 250;
+    [SerializeField] private float powerGain = 450;
 
     [SerializeField] private UnityEvent<int> OnPowerChange;
 
@@ -55,7 +57,7 @@ public class IsoPlayerInteraction : MonoBehaviour
             if (playerPower > 0)
             {
                 CheerUpUnits();
-                playerPower -= Time.deltaTime * 250;
+                playerPower -= Time.deltaTime * powerDepletion;
                 OnPowerChange?.Invoke(Mathf.Max((int)playerPower, 0));
             }
         }
@@ -63,7 +65,7 @@ public class IsoPlayerInteraction : MonoBehaviour
         {
             if (playerPower < 1000)
             {
-                playerPower += Time.deltaTime * 450;
+                playerPower += Time.deltaTime * powerGain;
                 OnPowerChange?.Invoke(Mathf.Min((int)playerPower, 1000));
             }
             else

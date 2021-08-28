@@ -46,4 +46,7 @@ MonoBehaviour:
   enemyPref: {fileID: 0}
   spawnPoint: {fileID: 5648133709021771726}
   spawnPositionRandomFactor: 0.3
-  recoveryTime: 1
+  recoveryTime: 5
+  lifeCycleManager: {fileID: 0}
+  waveFactor: 1.2
+  baseEnemyNum: 2

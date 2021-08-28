@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 449374300657842142}
   - component: {fileID: 449374300657842143}
   - component: {fileID: 449374300657842141}
-  m_Layer: 0
+  - component: {fileID: 2033632579}
+  - component: {fileID: 2033632580}
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,6 +70,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba8b33e2ad20ca4da727d6835e7fc25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectableDistance: 10
+  cheerUpDistance: 2
+  towerPrototype: {fileID: 0}
+  selectableMask:
+    serializedVersion: 2
+    m_Bits: 128
+  minionMask:
+    serializedVersion: 2
+    m_Bits: 256
+  sellButtonDelayTime: 0.3
+  playerPower: 1000
+  cheerSpeed: 2
+  OnPowerChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UiInteraction, Assembly-CSharp
+        m_MethodName: OnPowerChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!58 &449374300657842141
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -83,7 +112,35 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.2
+--- !u!114 &2033632579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449374300657842137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ea49cf72d88794c8eab029169fcbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2033632580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449374300657842137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be731e4386dc3e408936a9071029c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onMove:
+    m_PersistentCalls:
+      m_Calls: []
+  moveSpeed: 7
 --- !u!1 &449374301142042560
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,8 +241,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -88858163
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.4669811, g: 1, b: 0.88264215, a: 1}
@@ -267,8 +324,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -88858163
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c7df9ce6930a70e4887ca725e21192ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

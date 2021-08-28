@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a074007da027c4baf313616f4319c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  spawnPositionRandomFactor: 0
+  enemyPref: {fileID: 0}
+  spawnPoint: {fileID: 5648133709021771726}
+  spawnPositionRandomFactor: 0.3
+  recoveryTime: 1

@@ -93,9 +93,9 @@ GameObject:
   - component: {fileID: 4803340202786178958}
   - component: {fileID: 4803340202786178946}
   - component: {fileID: 4803340202786178957}
-  - component: {fileID: 1089633994182777032}
   - component: {fileID: 4803340202786178959}
   - component: {fileID: 860392661341630111}
+  - component: {fileID: 3383062241176278564}
   m_Layer: 8
   m_Name: Minion
   m_TagString: Untagged
@@ -145,19 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4803340204296259660}
---- !u!65 &1089633994182777032
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4803340202786178952}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4803340202786178959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +177,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minionSpriteRenderer: {fileID: 4803340203412440642}
+--- !u!61 &3383062241176278564
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803340202786178952}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.12}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.42, y: 0.72}
+  m_EdgeRadius: 0
 --- !u!1 &4803340203146929367
 GameObject:
   m_ObjectHideFlags: 0

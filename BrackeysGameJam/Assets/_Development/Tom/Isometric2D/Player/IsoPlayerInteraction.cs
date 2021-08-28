@@ -94,7 +94,7 @@ public class IsoPlayerInteraction : MonoBehaviour
     private void CheerUpUnits()
     {
         // For all units in Range, reduce chaos
-        Collider[] chaosM = Physics.OverlapSphere(transform.position, cheerUpDistance, minionMask);
+        Collider2D[] chaosM = Physics2D.OverlapCircleAll(transform.position, cheerUpDistance, minionMask);
         if (chaosM != null && chaosM.Length > 0)
         {
             System.Array.ForEach(chaosM, chaosMinion =>

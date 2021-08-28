@@ -32,29 +32,29 @@
     * Bäume
     * Blümchen
     * Wasser
-  * Start (Enemy Spawn)
-  * End    (Player Chrystal) -> Unser Leben oder Ziel für die Gegner
-  * Player
-  * Minions
-    * Normal
-    * (Chaos) -> Random Sprites(2-3 Gesichtsausdrücke) oder Farbänderung
-  * Enemy
-  * Tower
+* Start (Enemy Spawn)
+* End    (Player Chrystal) -> Unser Leben oder Ziel für die Gegner
+* Player
+* Minions
+  * Normal
+  * (Chaos) -> Random Sprites(2-3 Gesichtsausdrücke) oder Farbänderung
+* Enemy
+* Tower
 
-  * UI
-    * Logo
-    * Buttons
-      * Start
-      * Beenden
-    * IngameUI
-      * Background (Skybox)
+* UI
+  * Logo
+  * Buttons
+    * Start
+    * Beenden
+  * IngameUI
+    * Background (Skybox)
 
 ### Nice-To-Have:
 (Jeweils 1-2 Frames)
-  * Player
-    * Bauanimation
-    * Cheer Animation
-  * Enemy
-    * Death animation
-  * Minion
-    * Chaos Animation
+* Player
+  * Bauanimation
+  * Cheer Animation
+* Enemy
+  * Death animation
+* Minion
+  * Chaos Animation

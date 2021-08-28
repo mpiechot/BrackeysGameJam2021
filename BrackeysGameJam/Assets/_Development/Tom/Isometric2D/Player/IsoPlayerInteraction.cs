@@ -75,6 +75,7 @@ public class IsoPlayerInteraction : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             pauseMenu.SetActive(true);
+            PauseMenuControl.SetTimeScale(0);
         }
 
     }

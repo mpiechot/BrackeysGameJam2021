@@ -15,6 +15,11 @@ public class EnemySpawner : MonoBehaviour
 
     private CoinManagement coinManager;
 
+    public void SetEnemy(GameObject enemy)
+    {
+        enemyPref = enemy;
+    }
+
     void Start()
     {
         //alle Gegner besiegt Event mit StartNextWave abonnieren \\

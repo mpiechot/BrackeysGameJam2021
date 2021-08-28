@@ -20,6 +20,7 @@ public class Tower : MonoBehaviour
     
     public int cost = 10;
     public bool canShoot = true;
+    public bool HasTarget { get => target != null; }
 
     private void Start()
     {

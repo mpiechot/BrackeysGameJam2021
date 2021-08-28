@@ -12,6 +12,8 @@ public class TowerBuildPosition : MonoBehaviour
     private Vector3 startPos;
     [SerializeField] private float lerpSpeed = 0.2f;
 
+    public bool HasTower { get => tower != null; }
+    public bool HasTarget { get => tower != null && tower.GetComponent<Tower>().HasTarget; }
     private void Start()
     {
         startPos = transform.position;

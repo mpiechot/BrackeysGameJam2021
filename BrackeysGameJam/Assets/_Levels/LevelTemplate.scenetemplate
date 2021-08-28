@@ -64,11 +64,27 @@ MonoBehaviour:
   description: This is a template for creating levels.
   preview: {fileID: -1733322417978749970}
   dependencies:
+  - dependency: {fileID: 2800000, guid: 16d0ee05f62f1324ab48872df8859057, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 8f9ce57c5efb941458ff59840b2f5219, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 2c9052bacb1a9f44e9b69f9985f92ec8, type: 3}
+    instantiationMode: 1
   - dependency: {fileID: 182910417978994404, guid: f2d17219947166d41821313a81bb6014, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 8770022131437301963, guid: 4f0088f0a79ee0442b9bbceef7e6b347, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 3867937747490017149, guid: 010b1de0c6252f948bf7d66a199350a5, type: 3}
     instantiationMode: 1
+  - dependency: {fileID: 8770022131437301963, guid: e1ea1890085ad7b4eb1eb841a279936a, type: 3}
+    instantiationMode: 1
   - dependency: {fileID: 2800000, guid: 2bd0fbce76129de46b468172c7bd6b4c, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 04dd24ab5a6347e428d83ef469887c1a, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 04aeb0d159798cf419a1ddf5c9387a8d, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 8770022131437301963, guid: bf1d662abbf027045a1977634c41d6d0, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 2800000, guid: 2fd6421f253b4ef1a19526541f9ffc0c, type: 3}
     instantiationMode: 1
@@ -76,15 +92,25 @@ MonoBehaviour:
     instantiationMode: 1
   - dependency: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     instantiationMode: 1
-  - dependency: {fileID: 8770022131437301963, guid: 74eb125eec3fb4140b2a7625e233adbe, type: 3}
+  - dependency: {fileID: 2800000, guid: 0e5ec871c5216fa48a82959e3173afe5, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 8770022131437301963, guid: 7e9da837e75d0dd4baaa9bb8c2a8bde9, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 75ad3bf4a3034a142ae09d3a1123d690, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 2800000, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 8770022131437301963, guid: 74eb125eec3fb4140b2a7625e233adbe, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 919132149155446097, guid: 7608e7b99ecf4534083e85745e88bf01, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 2800000, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
     instantiationMode: 1
-  - dependency: {fileID: 449374300657842137, guid: f059bff77da763d4d85707c9320f3890, type: 3}
+  - dependency: {fileID: 2800000, guid: dffb880652445b848a4937b2f959ef96, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 8770022131437301963, guid: 3a78fb6f35efc4040a0af24c65074eec, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 8770022131437301963, guid: 13033d9e2bf92214caa3aadc8fdf70d6, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 8770022131437301963, guid: 03c973f165f25db44a348d760a1c45a7, type: 3}
     instantiationMode: 1
@@ -94,11 +120,17 @@ MonoBehaviour:
     instantiationMode: 1
   - dependency: {fileID: 2800000, guid: ee148e281f3c41c5b4ff5f8a5afe5a6c, type: 3}
     instantiationMode: 1
+  - dependency: {fileID: 449374300657842137, guid: f059bff77da763d4d85707c9320f3890, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: c4a274be8abb9604e814f4fda599e4de, type: 3}
+    instantiationMode: 1
   - dependency: {fileID: 8770022131437301963, guid: b5c330bc7efcf1940acfc1a318b07296, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 919132149155446097, guid: 51960d63c37e6a64a9920af5b01cff43, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 8770022131437301963, guid: 348addcc165ae884ca17044e8b32089f, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 9a3063f9f4d491545bc5a6f724314999, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 2100000, guid: b2f9c54eae5127746b8f3f7f30fb8ebc, type: 2}
     instantiationMode: 1

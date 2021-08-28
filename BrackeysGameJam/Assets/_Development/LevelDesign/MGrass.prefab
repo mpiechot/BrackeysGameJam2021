@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbourLayers:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 5248
   type: 1
 --- !u!114 &373302024257970255
 MonoBehaviour:

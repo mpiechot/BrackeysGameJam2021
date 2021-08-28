@@ -10,6 +10,7 @@ public class ISOEnemy : MonoBehaviour
     [SerializeField] private int health = 5;
     [SerializeField] private PathFinder pathFinder;
     [SerializeField] private float[] moveMatrix;
+    [SerializeField] private float moveSpeed = 1.0f;
     [HideInInspector] public UnityEvent<int> EnemyDiedEvent = new UnityEvent<int>();
     private List<KlotzPathData> selectedPath;
 
@@ -20,7 +21,7 @@ public class ISOEnemy : MonoBehaviour
     {
         if (selectedPath != null && selectedPath.Count > 0)
         {
-            transform.Translate((selectedPath[0].transform.position - transform.position).normalized * Time.deltaTime);
+            transform.Translate((selectedPath[0].transform.position - transform.position).normalized * Time.deltaTime * moveSpeed);
 
             if(Vector2.Distance(transform.position, selectedPath[0].transform.position) < 0.2f)
             {

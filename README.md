@@ -46,10 +46,15 @@
   * Buttons
     * Start
     * Beenden
+  * Herz/Kritall für Lebensanzeige
+  * Coin
+  * Aufladebalken für Player-Cheer-Up-Power
   * IngameUI
     * Background (Skybox)
 
 ### Nice-To-Have:
+* Tiles
+  * Brücke (horizontal/vertikal + erweiterbar)
 (Jeweils 1-2 Frames)
 * Player
   * Bauanimation

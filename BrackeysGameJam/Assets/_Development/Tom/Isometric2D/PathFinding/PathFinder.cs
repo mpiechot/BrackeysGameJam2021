@@ -10,9 +10,6 @@ public class PathFinder : MonoBehaviour
     [SerializeField] private GameObject debugTile;
     [SerializeField] private GameObject pathTile;
 
-    Dictionary<KlotzPathData, float> gScore;
-    Dictionary<KlotzPathData, float> fScore;
-
     public List<KlotzPathData> StartPathfinding(Transform startPosition, Transform endPosition, float[] moveMatrix)
     {
         return FindPath(startPosition.position, endPosition.position, moveMatrix);
@@ -43,8 +40,8 @@ public class PathFinder : MonoBehaviour
         List<KlotzPathData> closedSet = new List<KlotzPathData>();
 
         openSet.Add(startKlotz);
-        gScore = new Dictionary<KlotzPathData, float>();
-        fScore = new Dictionary<KlotzPathData, float>();
+        Dictionary<KlotzPathData, float> gScore = new Dictionary<KlotzPathData, float>();
+        Dictionary<KlotzPathData, float> fScore = new Dictionary<KlotzPathData, float>();
 
         gScore.Add(startKlotz, 0);
         fScore.Add(startKlotz, HValue(startKlotz.transform.position, endKlotz.transform.position));
@@ -108,7 +105,7 @@ public class PathFinder : MonoBehaviour
         }
 
         // Here no goal was found
-        print("Done pathfinding!");
+        //print("Done pathfinding!");
         return null;
     }
 
@@ -143,7 +140,7 @@ public class PathFinder : MonoBehaviour
 
     private List<KlotzPathData> SetupPath(KlotzPathData currentKlotz, Dictionary<KlotzPathData, KlotzPathData> cameFromKlotz)
     {
-        print("Path found!");
+        //print("Path found!");
         List<KlotzPathData> path = new List<KlotzPathData>();
         path.Add(currentKlotz);
         while (cameFromKlotz.ContainsKey(currentKlotz))

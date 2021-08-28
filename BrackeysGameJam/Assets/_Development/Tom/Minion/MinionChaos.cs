@@ -19,9 +19,9 @@ public class MinionChaos : MonoBehaviour
         minionSpriteRenderer.color = Color.Lerp(Color.white, Color.red, vars.Chaos / 1.2f);
     }
 
-    public void AddChaos(int numEnemies)
+    public void AddChaos(float chaosFactor)
     {
-        vars.AddChaos((Time.deltaTime / 20.0f) * numEnemies);
+        vars.AddChaos((Time.deltaTime / 20.0f) * chaosFactor);
     }
 
     internal void ResetChaos()

@@ -56,13 +56,13 @@ public class TowerBuildPosition : MonoBehaviour
 
     public void Select()
     {
-        print("Select!");
+        //print("Select!");
         isSelected = true;
     }
 
     public void UnSelect()
     {
-        print("Select!");
+        //print("Select!");
         isSelected = false;
     }
 }

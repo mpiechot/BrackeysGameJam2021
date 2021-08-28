@@ -84,7 +84,7 @@ public class IsoPlayerInteraction : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (selectedField != null)
+        if (selectedField != null && collision.GetComponent<TowerBuildPosition>() != selectedField)
         {
             selectedField.GetComponent<TowerBuildPosition>()?.UnSelect();
         }
@@ -107,13 +107,13 @@ public class IsoPlayerInteraction : MonoBehaviour
 
     private void Build()
     {
-        print("Build!");
+        //print("Build!");
         selectedField?.GetComponent<TowerBuildPosition>()?.BuildTower(towerPrototype);
     }
 
     private void Sell()
     {
-        print("Sell!");
+        //print("Sell!");
         selectedField?.GetComponent<TowerBuildPosition>()?.SellTower();
     }
 

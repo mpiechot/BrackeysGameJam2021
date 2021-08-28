@@ -10,8 +10,10 @@ public class ISOEnemy : MonoBehaviour
     [SerializeField] private int health = 5;
     [SerializeField] private PathFinder pathFinder;
     [SerializeField] private float[] moveMatrix;
-    public UnityEvent<int> EnemyDiedEvent = new UnityEvent<int>();
+    [HideInInspector] public UnityEvent<int> EnemyDiedEvent = new UnityEvent<int>();
     private List<KlotzPathData> selectedPath;
+
+    [SerializeField] private UnityEvent onDestroy;
 
 
     private void Update()
@@ -27,7 +29,7 @@ public class ISOEnemy : MonoBehaviour
         }
         else
         {
-            print("New Path");
+            //print("New Path");
             selectedPath = pathFinder.StartPathfinding(transform, target.transform, moveMatrix);
         }
     }
@@ -45,5 +47,10 @@ public class ISOEnemy : MonoBehaviour
     private void Die()
     {
         Destroy(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        onDestroy?.Invoke();
     }
 }

@@ -8,58 +8,64 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] float spawnPositionRandomFactor;
     [SerializeField] float recoveryTime;
-    private Transform spawnPointEnemy;
+    [SerializeField] private LifeCycleManager lifeCycleManager;
+    [SerializeField] private float waveFactor;
+    [SerializeField] private float baseEnemyNum;
 
-    private int waveCouter = 0;
 
     private CoinManagement coinManager;
-    // Start is called before the first frame update
+
     void Start()
     {
         //alle Gegner besiegt Event mit StartNextWave abonnieren \\
-
-
-        spawnPointEnemy = transform;
-
-        StartNextWave();
-        
         coinManager = CoinManagement.GetInstance();
     }
     
 
-    public void StartNextWave()
+    public void StartNextWave(int waveCounter)
     {
-        waveCouter++;
-        StartCoroutine("WaitForRecoveryTime");
+        StartCoroutine(WaitForRecoveryTime(waveCounter));
     }
 
-    private void SpawnEnemies(int waveNR)
+    private IEnumerator SpawnEnemies(int waveNR)
     {
-        Debug.Log("Neue Gegner werden erschaffen.");
-        for (int i = 0; i < waveCouter*2; i++)
+        //Debug.Log("Neue Gegner werden erschaffen.");
+        //print(WaveFunction(waveNR));
+        for (int i = 0; i < WaveFunction(waveNR); i++)
         {
-            //spawnPointEnemy.position = new Vector3(spawnPoint.position.x + Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor), 0.37f, spawnPoint.position.z+ Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor));
-            GameObject enemy = Instantiate<GameObject>(enemyPref, 
-                new Vector3(spawnPoint.position.x + Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor), spawnPoint.position.y + Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor))
-                , Quaternion.identity);
+            GameObject enemy = Instantiate<GameObject>(enemyPref,
+                RandomSpawnOffset()
+                , Quaternion.identity) ;
             enemy.SetActive(true);
             enemy.GetComponent<ISOEnemy>().EnemyDiedEvent.AddListener(coinManager.OnCoinsCollected);
+            lifeCycleManager.RegisterEnemy(enemy.GetComponent<ISOEnemy>());
+            yield return new WaitForSeconds(0.5f);
         }
         
     }
 
-    IEnumerator WaitForRecoveryTime()
+    private int WaveFunction(int waveNR)
     {
-        Debug.Log("Erholungszeit beginnt.");
-        yield return new WaitForSeconds(recoveryTime);
-        SpawnEnemies(waveCouter);
+        return Mathf.FloorToInt(waveNR * waveFactor + baseEnemyNum);
+    }
 
-        // #######################################
-        // This is an Endless Mode!! Remove this
+    private Vector3 RandomSpawnOffset()
+    {
+        return new Vector3(spawnPoint.position.x + Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor), spawnPoint.position.y + Random.Range(-spawnPositionRandomFactor, spawnPositionRandomFactor));
+    }
+
+    IEnumerator WaitForRecoveryTime(int waveNR)
+    {
+        //Debug.Log("Erholungszeit beginnt.");
         yield return new WaitForSeconds(recoveryTime);
-        StartCoroutine("WaitForRecoveryTime");
-        // Until here
-        // ######################################
+        yield return StartCoroutine(SpawnEnemies(waveNR));
+
+        //// #######################################
+        //// This is an Endless Mode!! Remove this
+        //yield return new WaitForSeconds(recoveryTime);
+        //StartCoroutine("WaitForRecoveryTime");
+        //// Until here
+        //// ######################################
 
     }
 }

@@ -11,6 +11,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private GameObject minionPrefab;
     [SerializeField] private int minionsPerTower = 4;
     [SerializeField] private float minionPower = .5f;
+    [SerializeField] private float chaosMultiplyer = 1.0f;
     
     private GameObject[] towerMinions;
     private GameObject target;
@@ -72,7 +73,7 @@ public class Tower : MonoBehaviour
         for (int i = 0; i < towerMinions.Length; i++)
         {
             if (Vector2.Distance(transform.position, towerMinions[i].transform.position) < 2)
-                towerMinions[i].GetComponent<MinionChaos>().AddChaos(targets.Length);
+                towerMinions[i].GetComponent<MinionChaos>().AddChaos(targets.Length * chaosMultiplyer);
         }
     }
 
@@ -104,7 +105,7 @@ public class Tower : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        Debug.Log("Wait for shooting!");
+        //Debug.Log("Wait for shooting!");
         shooting = true;
         yield return new WaitForSeconds(attackSpeed);
 
@@ -113,8 +114,8 @@ public class Tower : MonoBehaviour
             GameObject bulletObj = Instantiate(this.bullet, transform.position+ Vector3.up*shootingHeight, Quaternion.identity, transform);
             Bullet bullet = bulletObj.GetComponent<Bullet>();
             bullet.target = target;
-            print("bullet: " + bullet);
-            print("target: " + target);
+            //print("bullet: " + bullet);
+            //print("target: " + target);
             bullet.HitTargetEvent.AddListener(target.GetComponent<ISOEnemy>().OnEnemyHit);
         }
         shooting = false;

@@ -11,16 +11,15 @@ GameObject:
   - component: {fileID: 4532446757074228679}
   - component: {fileID: 669250576546585186}
   - component: {fileID: 3363433090798595752}
-  - component: {fileID: 3867937747490017147}
-  - component: {fileID: 4137898978678177425}
-  - component: {fileID: 3867937747490017146}
+  - component: {fileID: 51298849}
+  - component: {fileID: 51298848}
   m_Layer: 6
   m_Name: BasicEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4532446757074228679
 Transform:
   m_ObjectHideFlags: 0
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3867937747490017149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.606, y: 0.37, z: 7.53}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.44913003, y: 0.44913003, z: 0.44913003}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -88,7 +87,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3867937747490017147
+--- !u!58 &51298849
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3867937747490017149}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.18559997}
+  serializedVersion: 2
+  m_Radius: 0.49999994
+--- !u!114 &51298848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,44 +112,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3867937747490017149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8187ab5f608215e46b3cd4ef9fffc0b7, type: 3}
+  m_Script: {fileID: 11500000, guid: c7bec0a24cd17994fa4f7ed21fd4e8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  agent: {fileID: 4137898978678177425}
+  coinsWorth: 10
   health: 20
---- !u!195 &4137898978678177425
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3867937747490017149}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.84
-  m_Speed: 1
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.7423999
-  m_BaseOffset: 0.37119994
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!65 &3867937747490017146
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3867937747490017149}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9999999, y: 0.37119994, z: 0.9999999}
-  m_Center: {x: 0, y: 0.18559997, z: 0}
+  pathFinder: {fileID: 0}
+  EnemyDiedEvent:
+    m_PersistentCalls:
+      m_Calls: []

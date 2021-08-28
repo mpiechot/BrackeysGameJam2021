@@ -53,7 +53,13 @@ public class EnemySpawner : MonoBehaviour
         Debug.Log("Erholungszeit beginnt.");
         yield return new WaitForSeconds(recoveryTime);
         SpawnEnemies(waveCouter);
+
+        // #######################################
+        // This is an Endless Mode!! Remove this
         yield return new WaitForSeconds(recoveryTime);
         StartCoroutine("WaitForRecoveryTime");
+        // Until here
+        // ######################################
+
     }
 }

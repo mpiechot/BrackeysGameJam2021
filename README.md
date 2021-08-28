@@ -35,6 +35,7 @@
 * Start (Enemy Spawn)
 * End    (Player Chrystal) -> Unser Leben oder Ziel für die Gegner
 * Player
+* Bullet (Tower Angriff)
 * Minions
   * Normal
   * (Chaos) -> Random Sprites(2-3 Gesichtsausdrücke) oder Farbänderung

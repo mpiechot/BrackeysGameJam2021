@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuControl : MonoBehaviour
 {
@@ -9,11 +10,11 @@ public class MenuControl : MonoBehaviour
     
     public void OnStart()
     {
-        
+        SceneManager.LoadScene("Level1");
     }
-    public void OnLoadLevel()
+    public void OnLoadLevel(int level)
     {
-        //Load the selected Level
+        SceneManager.LoadScene(level);
     }
     public void OnLoadLevelClose()
     {

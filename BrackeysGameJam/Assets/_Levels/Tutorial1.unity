@@ -7019,6 +7019,8 @@ MonoBehaviour:
   waveTextField: {fileID: 530265882}
   lifeTextField: {fileID: 530265881}
   playerTextField: {fileID: 530265878}
+  goPanel: {fileID: 0}
+  nextLevelButton: {fileID: 0}
 --- !u!114 &1800194466
 MonoBehaviour:
   m_ObjectHideFlags: 0

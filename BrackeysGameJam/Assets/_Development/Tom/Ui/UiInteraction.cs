@@ -13,6 +13,9 @@ public class UiInteraction : MonoBehaviour
     [SerializeField] private TMPro.TMP_Text lifeTextField;
     [SerializeField] private TMPro.TMP_Text playerTextField;
 
+    [SerializeField] private GameObject goPanel;
+    [SerializeField] private GameObject nextLevelButton;
+
     void Update()
     {
         UpdateDisplayText();
@@ -75,6 +78,9 @@ public class UiInteraction : MonoBehaviour
     public void OnWonGame()
     {
         UpdateWonText();
+        PauseMenuControl.SetTimeScale(0);
+        nextLevelButton.SetActive(true);
+        goPanel.SetActive(true);
     }
 
     public void OnLifeChange(int currentLife)
@@ -85,6 +91,9 @@ public class UiInteraction : MonoBehaviour
     public void OnGameOver()
     {
         UpdateLostText();
+        PauseMenuControl.SetTimeScale(0);
+        nextLevelButton.SetActive(false);
+        goPanel.SetActive(true);
     }
 
     public void OnPowerChange(int newPower)

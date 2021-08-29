@@ -96,7 +96,10 @@ public class TutorialProgression : MonoBehaviour
                 timer = 5;
             }
             if (!buildPosition.HasTower)
+            {
+                PlayerPrefs.SetInt("Tutorial", 1);
                 subState = 1;
+            }
         }
         else
         {

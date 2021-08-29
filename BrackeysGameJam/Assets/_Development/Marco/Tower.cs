@@ -31,6 +31,7 @@ public class Tower : MonoBehaviour
             towerMinions[i].SetActive(true);
             towerMinions[i].GetComponent<MinionVars>().SetHome(transform.position + Vector3.one*Random.Range(-1.0f,1.0f));
         }
+        AudioPlayer.RequestPlaySound(SoundType.Build);
     }
 
     // Update is called once per frame

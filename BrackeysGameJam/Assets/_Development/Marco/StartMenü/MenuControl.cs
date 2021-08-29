@@ -7,13 +7,30 @@ public class MenuControl : MonoBehaviour
 {
     [SerializeField] private GameObject levelLoadMenu;
     [SerializeField] private GameObject mainMenu;
-    
+
+    private void Start()
+    {
+        if(!PlayerPrefs.HasKey("Tutorial"))
+        {
+            PlayerPrefs.SetInt("Tutorial", 0);
+        }
+    }
+
     public void OnStart()
     {
-        SceneManager.LoadScene("Level1");
+        if (PlayerPrefs.GetInt("Tutorial") == 0)
+        {
+            SceneManager.LoadScene("Tutorial1");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("SelectedLevel", 1);
+            SceneManager.LoadScene("Level1");
+        }
     }
     public void OnLoadLevel(int level)
     {
+        PlayerPrefs.SetInt("SelectedLevel", level);
         SceneManager.LoadScene(level);
     }
     public void OnLoadLevelClose()
@@ -29,5 +46,9 @@ public class MenuControl : MonoBehaviour
     public void OnExit()
     {
         Application.Quit();
+    }
+    public void OnLoadTutorial()
+    {
+        SceneManager.LoadScene("Tutorial1");
     }
 }

@@ -24,22 +24,22 @@ public class UiInteraction : MonoBehaviour
 
     private void UpdateDisplayText()
     {
-        coinsTextField.text = $"Coins: {currentCoinDisplayVal}";
+        coinsTextField.text = currentCoinDisplayVal.ToString() ;
     }
 
     private void UpdateLifeText(int lives)
     {
-        lifeTextField.text = $"Lives: {lives}";
+        lifeTextField.text = lives.ToString();
     }
 
     private void UpdatePowerText(int power)
     {
-        playerTextField.text = $"PlayerPower: {power}";
+        playerTextField.text = power.ToString();
     }
 
     private void UpdateWaveText(int waveNum)
     {
-        waveTextField.text = $"Wave          - {waveNum} - \nHave Fun!";
+        waveTextField.text = waveNum.ToString();
     }
 
     private void UpdateWonText()

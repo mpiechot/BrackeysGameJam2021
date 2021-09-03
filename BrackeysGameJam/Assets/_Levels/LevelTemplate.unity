@@ -7542,7 +7542,7 @@ RectTransform:
   - {fileID: 1900045870}
   - {fileID: 729149635}
   m_Father: {fileID: 1421996222}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -14259,7 +14259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1421996222}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1387118751
 MonoBehaviour:
@@ -21162,6 +21162,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 928973553869799524, guid: f2d17219947166d41821313a81bb6014, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758696952551301192, guid: f2d17219947166d41821313a81bb6014, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3098765580541653805, guid: f2d17219947166d41821313a81bb6014, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -21169,6 +21177,14 @@ PrefabInstance:
     - target: {fileID: 3098765580541653805, guid: f2d17219947166d41821313a81bb6014, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnRestart
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662563621608993368, guid: f2d17219947166d41821313a81bb6014, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043282537305661619, guid: f2d17219947166d41821313a81bb6014, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6356198173087725117, guid: f2d17219947166d41821313a81bb6014, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -21212,7 +21228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &2110514526 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 182910417525261200, guid: f2d17219947166d41821313a81bb6014, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4481434851361778825, guid: f2d17219947166d41821313a81bb6014, type: 3}
   m_PrefabInstance: {fileID: 2110514523}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

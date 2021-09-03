@@ -32,7 +32,14 @@ public class AudioPlayer : MonoBehaviour
 
     public static void RequestPlaySound(SoundType type)
     {
-        instance.PlaySound(type);
+        if (instance)
+        {
+            instance.PlaySound(type);
+        }
+        else
+        {
+            print("No Audio Player was found!");
+        }
     }
 
     private void PlaySound(SoundType type)

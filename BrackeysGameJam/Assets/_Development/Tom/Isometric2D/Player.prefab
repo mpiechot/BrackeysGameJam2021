@@ -345,7 +345,7 @@ SpriteRenderer:
   m_SortingLayerID: -88858163
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bdc31984a7195bf409c73108477cf43f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b652d5a0722a61a4f941fd0d94181842, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -369,8 +369,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectables:
-  - {fileID: 21300000, guid: 7f4bbf22f1efb614e811809247b1b1af, type: 3}
-  - {fileID: 21300000, guid: bdc31984a7195bf409c73108477cf43f, type: 3}
-  - {fileID: 21300000, guid: 09b16e84a6d1ce44096e0cdcebae5dfa, type: 3}
-  - {fileID: 21300000, guid: 57a7a08076e331a4bbdff06ec4ebd048, type: 3}
-  - {fileID: 21300000, guid: b655954778aacf6429d76db78ebe7fcd, type: 3}
+  - {fileID: 21300000, guid: b652d5a0722a61a4f941fd0d94181842, type: 3}
